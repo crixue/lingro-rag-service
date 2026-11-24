@@ -1,0 +1,18 @@
+{
+    "name":null,
+    "input_variables":[
+        "agent_scratchpad",
+        "input"
+    ],
+    "input_types":{
+
+    },
+    "output_parser":null,
+    "partial_variables":{
+
+    },
+    "template":"Question：{input}\nThought:{agent_scratchpad}",
+    "template_format":"f-string",
+    "validate_template":false,
+    "_type":"prompt"
+}

@@ -1,0 +1,56 @@
+{
+    "title": "文档分析 JSON Schema",
+    "description": "用于解析文档的关键信息，包括摘要、主题标签、实体、引用和术语表。",
+    "type": "object",
+    "properties": {
+        "core_summary": {
+            "type": "string",
+            "description": "全文核心摘要，50-300字"
+        },
+        "theme_tags": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "主题标签列表"
+        },
+        "document_intent_type": {
+            "type": "string",
+            "description": "文档意图和类型"
+        },
+        "key_entities": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "entity_name": {
+                        "type": "string",
+                        "description": "实体名称"
+                    },
+                    "entity_type": {
+                        "type": "string",
+                        "description": "实体类型（如人名、组织、数值等）"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "实体的具体数值或描述"
+                    },
+                    "context": {
+                        "type": "string",
+                        "description": "实体出现的上下文句子"
+                    }
+                },
+                "required": [
+                    "entity_name",
+                    "entity_type",
+                    "value",
+                    "context"
+                ]
+            },
+            "description": "关键实体与数值列表"
+        }
+    },
+    "required": [
+        "core_summary"
+    ]
+}

@@ -1,0 +1,44 @@
+# 排除测试和临时文件
+test/
+whls/
+data/
+output/
+resources/
+samples/
+mock_data/
+lingro_langchain_py.egg-info/
+
+# 常见的需要排除的文件夹
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# IDE 和版本控制
+.git/
+.gitignore
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 环境变量和配置
+.env
+.env.local
+venv/
+env/
+.venv/
+
+# 日志文件
+*.log
+logs/
+
+# Node.js (如果有)
+node_modules/
+npm-debug.log

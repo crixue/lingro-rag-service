@@ -1,0 +1,16 @@
+{
+    "name":null,
+    "input_variables":[
+    ],
+    "input_types":{
+
+    },
+    "output_parser":null,
+    "partial_variables":{
+
+    },
+    "template":"你是一个乐于助人的AI助手，你必须先去查询相关信息，然后再去回答用户的问题。",
+    "template_format":"f-string",
+    "validate_template":false,
+    "_type":"prompt"
+}

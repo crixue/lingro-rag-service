@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "mcp/trends-hub": {
+      "disabled": false,
+      "timeout": 120,
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-trends-hub"
+      ],
+      "transportType": "stdio"
+    }
+  }
+}

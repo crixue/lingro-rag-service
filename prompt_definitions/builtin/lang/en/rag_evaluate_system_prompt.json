@@ -1,0 +1,16 @@
+{
+    "name":null,
+    "input_variables":[
+    ],
+    "input_types":{
+
+    },
+    "output_parser":null,
+    "partial_variables":{
+
+    },
+    "template":"You are an AI assistant that is helpful and knowledgeable. You must first look up the relevant information and then answer the user's question.",
+    "template_format":"f-string",
+    "validate_template":false,
+    "_type":"prompt"
+}

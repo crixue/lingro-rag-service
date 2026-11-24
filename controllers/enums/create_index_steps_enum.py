@@ -1,0 +1,23 @@
+from enum import Enum
+
+
+class CreateElasticSearchIndexStepsEnum(Enum):
+    INITIATE = 0
+    CREATE_ES_SEARCH_INDEX = 1
+    LOAD_DOCS_AND_SAVE_TO_ES = 2
+
+
+class CreateHippoRAGStepsEnum(Enum):
+    INITIATE = 0
+    LOAD_DOCS_AND_SAVE_TO_STORAGE = 1
+    EXTRACT_OPENIE_FROM_DOCUMENT = 2
+    SAVE_EXTRACT_OPENIE_2_NEO4J_GRAPH = 3
+    AUGMENT_GRAPHDB_WITH_SIMILARITY = 4
+    PRE_BUILT_RETRIEVE_INDEX = 5
+
+
+class CreateVectorStoreIndexStepsEnum(Enum):
+    INITIATE = 0
+    LOAD_AND_ADD_DOCS_TO_STORAGE = 1
+    BUILD_FAISS_INDEX = 2
+    BUILD_BM25_INDEX = 3

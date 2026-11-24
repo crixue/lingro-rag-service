@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "mcp/antv/chart": {
+      "disabled": false,
+      "timeout": 120,
+      "command": "npx",
+      "args": [
+        "-y",
+        "@antv/mcp-server-chart"
+      ],
+      "transportType": "stdio"
+    }
+  }
+}

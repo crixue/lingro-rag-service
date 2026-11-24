@@ -1,0 +1,55 @@
+# 依赖镜像：CUDA 运行时 + Python 3.12 + 文档解析所需的系统库
+#
+# docker build -t <your-registry>/lingro-rag-deps:latest -f base-nvidia-Dockerfile .
+#
+# 无 GPU 环境可改用 CPU 版基础镜像：
+#   docker build --build-arg CUDA_IMAGE=ubuntu:24.04 \
+#                --build-arg FAISS_SPEC=faiss-cpu \
+#                -t <your-registry>/lingro-rag-deps:latest -f base-nvidia-Dockerfile .
+ARG CUDA_IMAGE=nvidia/cuda:12.9.1-runtime-ubuntu24.04
+FROM ${CUDA_IMAGE}
+
+ARG DEBIAN_FRONTEND=noninteractive
+ARG PIP_INDEX_URL=https://pypi.org/simple
+# faiss-gpu-cu12 需要 CUDA 12 运行环境；纯 CPU 环境可传 FAISS_SPEC=faiss-cpu
+ARG FAISS_SPEC=faiss-gpu-cu12==1.12.0
+
+WORKDIR /app
+
+# Ubuntu 24.04 自带 python3.12；多格式文档解析依赖 libmagic / poppler / libreoffice / pandoc / tesseract
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        python3.12 python3.12-dev python3.12-venv \
+        curl wget git ca-certificates \
+        libmagic-dev poppler-utils libreoffice pandoc \
+        tesseract-ocr tesseract-ocr-chi-sim tesseract-ocr-chi-tra \
+        pkg-config cmake build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# 安装 uv
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh \
+    && cp /root/.local/bin/uv /usr/local/bin/uv \
+    && cp /root/.local/bin/uvx /usr/local/bin/uvx
+ENV PATH="/root/.local/bin:$PATH"
+
+# 时区与 CUDA 环境变量
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+ENV CUDA_HOME=/usr/local/cuda
+ENV PATH=$CUDA_HOME/bin:$PATH
+
+# 安装项目依赖（利用 BuildKit 缓存）。FAISS_SPEC 允许在 CPU 环境切换到 faiss-cpu。
+COPY pyproject.toml /app/
+ENV UV_INDEX_URL=${PIP_INDEX_URL}
+ENV UV_HTTP_TIMEOUT=120
+RUN rm -f /usr/lib/python3.12/EXTERNALLY-MANAGED
+RUN --mount=type=cache,target=/root/.cache/uv \
+    sed -i "s|faiss-gpu-cu12==1.12.0|${FAISS_SPEC}|" pyproject.toml \
+    && uv pip install --system --python python3.12 -r pyproject.toml
+
+# NLTK 数据（unstructured 的部分分区器会用到；缺失时不影响启动）
+ENV NLTK_DATA=/usr/local/share/nltk_data
+RUN mkdir -p /usr/local/share/nltk_data \
+    && python3.12 -m nltk.downloader -d /usr/local/share/nltk_data \
+        punkt_tab averaged_perceptron_tagger_eng || true
+
+CMD ["python3.12", "--version"]

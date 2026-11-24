@@ -1,0 +1,6 @@
+{
+  "ner_instruction_system_prompt": "Your task is to extract named entities from the given paragraph. \nReturn the JSON of named entities, where the key value name of the JSON must be named_entities and the corresponding value must be a string list",
+  "ner_input_one_shot_human_prompt": "Paragraph:\n```\nRadio City\nRadio City is India's first private FM radio station and was started on 3 July 2001.\nIt plays Hindi, English and regional songs.\nRadio City recently forayed into New Media in May 2008 with the launch of a music portal - PlanetRadiocity.com that offers music related news, videos, songs, and other music-related features.```",
+  "one_shot_passage_entities_AI_prompt": "{\"named_entities\":\n    [\"Radio City\", \"India\", \"3 July 2001\", \"Hindi\", \"English\", \"May 2008\", \"PlanetRadiocity.com\"]\n}",
+  "ner_user_input_human_prompt": "Paragraph:```\\n{user_input}\\n```"
+}

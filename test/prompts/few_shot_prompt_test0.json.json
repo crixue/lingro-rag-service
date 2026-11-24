@@ -1,0 +1,17 @@
+{
+    "_type": "few_shot",
+    "prefix": "Write beautiful antonyms for the following words.",
+    "input_variables": [
+        "adjective"
+    ],
+    "example_prompt": {
+        "_type": "prompt",
+        "input_variables": [
+            "input",
+            "output"
+        ],
+        "template": "Input: {input}\nOutput: {output}"
+    },
+    "examples": "./test_data/prompts/few_shot_prompt_test0.json_examples.json",
+    "suffix": "Input: {adjective}\nOutput:"
+}

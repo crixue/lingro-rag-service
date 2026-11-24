@@ -1,0 +1,3 @@
+{
+  "standard_few_shot_examples1" : "\n\nContent Accuracy: 90\nExplanation: The response is mostly accurate, with only a minor factual error about [specific point].\nCompleteness: 75\nExplanation: Most of the key points are covered, but it does not explicitly mention the importance of automatic management in maintaining system health.\n\nRelevance: 100\nExplanation: The response is entirely relevant and directly addresses the question without introducing any unrelated information.\n\nConciseness: 95\nExplanation: The response is concise and avoids unnecessary details."
+}

@@ -1,0 +1,20 @@
+{
+    "name":null,
+    "input_variables":[
+        "question",
+        "gt_answer",
+        "llm_response",
+        "few_shot_examples"
+    ],
+    "input_types":{
+
+    },
+    "output_parser":null,
+    "partial_variables":{
+
+    },
+    "template":"You will evaluate the model answer against a provided reference answer based on the original question. Even if the answers are brief, evaluate each dimension thoroughly. Use the following dimensions to assign a whole number score from 0 to 100 for each dimension. Do not use fractional or non-standard formats (e.g., ½ or 50%). Provide a brief explanation for your score in each dimension.\n\nDimensions:\n\nContent Accuracy (0-100)\nHow accurately does the response convey the key facts and meaning present in the reference answer? Even with short answers, if the content is correct, score it accordingly. If there are factual errors or misunderstandings, give 0 points.\n\nCompleteness (0-100)\nDoes the response cover the key point(s) of the reference answer? For short answers, the evaluation will focus on whether the answer provides the essential information without significant omissions.\n\nRelevance (0-100)\nHow relevant is the response to the question and the reference answer? Does it stay on topic without introducing unrelated information? Ensure that even short answers remain relevant to the question.\n\nConciseness (0-100)\nHow concise is the response? Does it convey the necessary information without unnecessary verbosity? For brief answers, ensure they deliver the core message directly and without extra details.\n\nOutput Format:\n\nFor each dimension, provide:\n\nScore (0-100)\nExplanation (1-2 sentences)\n\n\nHere is a example:{few_shot_examples}\n\nHere is the question and answers for your evaluation:\n\nQuestion:\n{question}\n\nReference Answer:\n{gt_answer}\n\nModel Answer:\n{llm_response}",
+    "template_format":"f-string",
+    "validate_template":false,
+    "_type":"prompt"
+}

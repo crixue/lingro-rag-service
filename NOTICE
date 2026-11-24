@@ -1,0 +1,59 @@
+# NOTICE
+
+This repository contains code derived from the following open-source projects.
+Each component remains under its upstream license. Files listed as "modified"
+were adapted for this project (interface changes, Chinese prompts, Neo4j-backed
+graph storage, token accounting, etc.).
+
+## HippoRAG
+
+- Upstream: https://github.com/OSU-NLP-Group/HippoRAG
+- License: MIT
+- Location: `core/data_connections/retrievers/knowlege_graph_retrievers/hipproRAG/`
+- Status: modified. The upstream implementation was adapted to use Neo4j as the
+  graph store, an OpenAI-compatible embedding service, and project-specific
+  document storage, and was wired into the LangChain retriever interface.
+
+## RAGChecker
+
+- Upstream: https://github.com/amazon-science/RAGChecker
+- License: Apache-2.0 (see `licenses/Apache-2.0.txt`)
+- Location: `rag_checker/`
+- Status: modified. Metric implementations and the evaluator were adapted, and a
+  custom weighted LLM-as-judge checker was added.
+
+## RefChecker
+
+- Upstream: https://github.com/amazon-science/RefChecker
+- License: Apache-2.0 (see `licenses/Apache-2.0.txt`)
+- Usage: consumed as a PyPI dependency (`refchecker`) for claim extraction and
+  claim-level checking inside `rag_checker/`. No source code is vendored.
+
+## Wikipedia
+
+- Upstream: https://github.com/goldsmith/Wikipedia
+- License: MIT
+- Location: `core/agents/toolkits/wikipedia_tools/`
+- Status: modified. Thin wrapper kept for the agent toolkit; outbound proxy is
+  now configurable through an environment variable.
+
+## LangChain / LangGraph
+
+- Upstream: https://github.com/langchain-ai/langchain
+- License: MIT
+- Usage: framework dependency. Small utility patterns (SSE chunk handling,
+  message conversion) follow upstream examples and were rewritten for this
+  project.
+
+## unstructured
+
+- Upstream: https://github.com/Unstructured-IO/unstructured
+- License: Apache-2.0
+- Usage: PyPI dependency used for document partitioning.
+
+## Third-party data
+
+No third-party documents, customer data, or copied articles are included in this
+repository. Files under `test/` use synthetic text written for this project.
+MCP server definitions under `resources/mcp_deployment_configs/` reference
+public community servers and contain no credentials.

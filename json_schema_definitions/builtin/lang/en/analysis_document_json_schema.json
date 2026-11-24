@@ -1,0 +1,57 @@
+{
+    "title": "Document Analysis JSON Schema",
+    "description": "Used to parse key information from documents, including summary, theme tags, entities, citations, and glossary.",
+    "type": "object",
+    "properties": {
+        "core_summary": {
+            "type": "string",
+            "description": "Core summary of the full text, 50-300 words"
+        },
+        "theme_tags": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of theme tags"
+        },
+        "document_intent_type": {
+            "type": "string",
+            "description": "Document intent and type"
+        },
+        "key_entities": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "entity_name": {
+                        "type": "string",
+                        "description": "Entity name"
+                    },
+                    "entity_type": {
+                        "type": "string",
+                        "description": "Entity type (e.g., person name, organization, numerical value, etc.)"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "Specific value or description of the entity"
+                    },
+                    "context": {
+                        "type": "string",
+                        "description": "Context sentence where the entity appears"
+                    }
+                },
+                "required": [
+                    "entity_name",
+                    "entity_type",
+                    "value",
+                    "context"
+                ]
+            },
+            "description": "List of key entities and values"
+        }
+    },
+    "required": [
+        "core_summary"
+    ]
+}
+

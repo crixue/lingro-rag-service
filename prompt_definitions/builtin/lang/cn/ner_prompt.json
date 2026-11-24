@@ -1,0 +1,6 @@
+{
+  "ner_instruction_system_prompt": "你的任务是从给定段落中提取命名实体。\n返回命名实体的JSON，其中JSON的key值名称必须为named_entities，对应的value必须是一个字符串列表",
+  "ner_input_one_shot_human_prompt": "段落：\n```\n无线电城\n无线电城是印度第一家私人调频广播电台，成立于2001年7月3日。\n它播放印地语、英语和地区歌曲。\n无线电城最近在2008年5月进军新媒体，推出了一个音乐门户网站 PlanetRadiocity.com，提供音乐相关的新闻、视频、歌曲和其他音乐相关功能。```",
+  "one_shot_passage_entities_AI_prompt": "{\"named_entities\":[\"无线电城\", \"印度\", \"2001年7月3日\", \"印地语\", \"英语\", \"2008年5月\", \"PlanetRadiocity.com\"]}",
+  "ner_user_input_human_prompt": "段落：```\\n{user_input}\\n```"
+}

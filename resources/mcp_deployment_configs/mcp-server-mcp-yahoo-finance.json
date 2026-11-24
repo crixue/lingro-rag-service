@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "mcp/yahoo-finance": {
+      "disabled": false,
+      "timeout": 120,
+      "command": "uvx",
+      "args": [
+        "mcp-yahoo-finance"
+      ],
+      "transportType": "stdio"
+    }
+  }
+}

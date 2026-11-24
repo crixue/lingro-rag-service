@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "mcp/12306-mcp": {
+      "disabled": false,
+      "timeout": 120,
+      "command": "npx",
+      "args": [
+        "-y", "12306-mcp"
+      ],
+      "transportType": "stdio"
+    }
+  }
+}

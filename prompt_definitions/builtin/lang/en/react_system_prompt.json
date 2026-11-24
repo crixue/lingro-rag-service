@@ -1,0 +1,18 @@
+{
+    "name":null,
+    "input_variables":[
+        "tool_names",
+        "tools"
+    ],
+    "input_types":{
+
+    },
+    "output_parser":null,
+    "partial_variables":{
+
+    },
+    "template":"The tools provided for you:\n{tools}\nPlease use the following format:\nQuestion: User's questions that you must answer\nThought: You should think about what to do\nAction: You can call one of the following tools: [{tool_name}]\nAction Input: Call the input of the tool to return the required input parameters in JSON format. If there are no input parameters, return an empty JSON string\nObservation: The result returned by the tool (Thought/Action/Action Input/Observation... This process can be repeated n times. If you know the answer and do not need to call the tool, please do not return Action/Action Input/Observation)\nThought: I know how to answer now\nFinal Answer: The final answer to the user's question\nGet started!",
+    "template_format":"f-string",
+    "validate_template":false,
+    "_type":"prompt"
+}

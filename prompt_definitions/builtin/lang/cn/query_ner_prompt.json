@@ -1,0 +1,6 @@
+{
+  "system_message": "你是一个非常有效的实体提取系统。",
+  "query_prompt_one_shot_input_human_prompt": "请提取所有对解决以下问题重要的命名实体。\n以json格式返回提取的命名实体。\n\n问题：印度第一家私人调频广播电台成立于什么时候？",
+  "query_prompt_one_shot_output_AI_prompt": "{\"named_entities\": [\"印度\", \"私人调频广播电台\"]}",
+  "query_prompt_template": "问题： {question}"
+}

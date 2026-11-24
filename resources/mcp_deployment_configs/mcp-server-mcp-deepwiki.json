@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "mcp/deep-wiki": {
+      "disabled": false,
+      "timeout": 180,
+      "command": "npx",
+      "args": [
+        "-y", "mcp-deepwiki@latest"
+      ],
+      "transportType": "stdio"
+    }
+  }
+}

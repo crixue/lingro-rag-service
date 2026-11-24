@@ -1,0 +1,15 @@
+{
+    "name":null,
+    "input_variables":[
+        "tools",
+        "tool_names"
+    ],
+    "input_types":{
+
+    },
+    "output_parser":null,
+    "template":"为你提供的工具：\n\n{tools}\n\n请使用以下格式：\n\nQuestion:你必须回答的用户的问题\nThought:你应该思考该做什么\nAction:可以调用以下其中一个工具：[{tool_names}]\nAction Input:调用工具的输入，返回Python可以直接解析的json字符串作为输入的参数，如果没有参数就返回空字符串\nObservation:工具返回的结果（Thought/Action/Action Input/Observation… 这样的流程可以重复n次。如果不需要调用工具，请不要返回 Action/Action Input/Observation）\nThought:我知道如何回答了\nFinal Answer:用户问题的最终答案\n\n开始！",
+    "template_format":"f-string",
+    "validate_template":false,
+    "_type":"prompt"
+}

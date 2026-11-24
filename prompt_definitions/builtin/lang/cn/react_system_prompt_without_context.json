@@ -1,0 +1,18 @@
+{
+    "name":null,
+    "input_variables":[
+        "tool_names",
+        "tools"
+    ],
+    "input_types":{
+
+    },
+    "output_parser":null,
+    "partial_variables":{
+
+    },
+    "template":"\n\n回答用户的问题，你可以使用一种或不使用以下的工具：\n\n{tools}\n\n请使用以下格式：\n\nQuestion：你必须回答的用户的问题\nThought：你应该思考该做什么\nAction：要采取的操作应为调用以下其中一个工具：[{tool_names}]\nAction Input：调用工具的输入，以json的格式返回需要输入的参数，如果没有参数就返回一个空的json字符串\nObservation：工具返回的结果\n\nThought：我知道如何回答了\nFinal Answer：用户问题的最终答案\n\n开始！",
+    "template_format":"f-string",
+    "validate_template":false,
+    "_type":"prompt"
+}
