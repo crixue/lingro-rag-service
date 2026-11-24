@@ -9,11 +9,6 @@
 ![MCP](https://img.shields.io/badge/MCP-1.23-6B4FBB)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-> **状态说明**
-> 这套服务曾作为 Lingro 的后端上线运营，目前已下线。本仓库是生产代码的**脱敏公开快照**：
-> 不含密钥、内部地址、企业文档与用户数据；少量与运行相关的 bug 已修复，其余问题如实列在
-> [已知限制](#已知限制) 中。完整实现与演示可在面试中现场讲解。
-
 ---
 
 ## 目录
